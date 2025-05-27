@@ -17,7 +17,7 @@ export class AuthService {
 
   private readonly API_URL = environment.apiUrl;
   login(email: string, password: string): Observable<boolean> {
-    return this.http.post<{ token: string }>(this.API_URL+'/auth/login', { email, password }).pipe(
+    return this.http.post<{ token: string }>(this.API_URL+'/auth/admin/login', { email, password }).pipe(
       tap(response => {
         localStorage.setItem('token', response.token);
         this.loggedIn.next(true);

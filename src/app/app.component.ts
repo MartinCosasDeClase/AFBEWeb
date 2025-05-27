@@ -19,8 +19,8 @@ import {JwtInterceptor} from './auth/JwtInterceptor';
   template: `
     <nav class="navbar">
       <div style="display: flex; align-items: center;">
-        <img src="assets/afbeLogoInverted.png" alt="Logo FB" style="max-width: 50%; height: auto;"/>
-        <span>AFBE</span>
+        <img src="assets/afbeLogoInverted.png" alt="Logo FB" style="max-width: 10%; height: auto;"/>
+        <span><h1>AFBE</h1></span>
       </div>
       <div>
         <a routerLink="/">Inicio</a>

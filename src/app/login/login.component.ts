@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
 import { FormsModule } from '@angular/forms';
-import {CommonModule} from '@angular/common';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
@@ -14,11 +14,11 @@ import {CommonModule} from '@angular/common';
       <form (ngSubmit)="onLogin()" #loginForm="ngForm">
         <input
           type="text"
-          placeholder="Usuario"
+          placeholder="Correo electrónico"
           [(ngModel)]="email"
-          name="username"
+          name="email"
           required
-          #usernameInput="ngModel"
+          #emailInput="ngModel"
         />
         <input
           type="password"
@@ -43,11 +43,17 @@ export class LoginComponent {
 
   onLogin() {
     this.error = '';
-    this.auth.login(this.email, this.password).subscribe(success => {
-      if (success) {
-        this.router.navigate(['/']);
-      } else {
-        this.error = 'Usuario o contraseña inválidos';
+
+    this.auth.login(this.email, this.password).subscribe({
+      next: (success) => {
+        if (success) {
+          this.router.navigate(['/']);
+        } else {
+          this.error = 'Acceso denegado.';
+        }
+      },
+      error: (err) => {
+        this.error = err.error || 'Error desconocido en el login.';
       }
     });
   }
