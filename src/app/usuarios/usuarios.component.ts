@@ -10,12 +10,22 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatIconModule } from '@angular/material/icon';
 import { environment } from '../environment/environment';
 
 @Component({
   selector: 'app-usuarios',
   standalone: true,
-  imports: [CommonModule, FormsModule, MatTableModule, MatPaginatorModule, MatInputModule, MatButtonModule, MatCardModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatInputModule,
+    MatButtonModule,
+    MatCardModule,
+    MatIconModule
+  ],
   template: `
     <mat-card class="usuarios-container">
       <h2>Usuarios</h2>
@@ -63,9 +73,14 @@ import { environment } from '../environment/environment';
             <th mat-header-cell *matHeaderCellDef> Rol </th>
             <td mat-cell *matCellDef="let user"> {{ user.rol }} </td>
           </ng-container>
-          <ng-container matColumnDef="password">
-            <th mat-header-cell *matHeaderCellDef> Contraseña </th>
-            <td mat-cell *matCellDef="let user"> {{ user.password }} </td>
+
+          <ng-container matColumnDef="acciones">
+            <th mat-header-cell *matHeaderCellDef> Editar </th>
+            <td mat-cell *matCellDef="let user">
+              <button mat-icon-button color="primary" (click)="editarUsuario(user.nif)">
+                <mat-icon>edit</mat-icon>
+              </button>
+            </td>
           </ng-container>
 
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -109,12 +124,16 @@ import { environment } from '../environment/environment';
       justify-content: space-between;
       margin-top: 20px;
     }
+
+    mat-icon {
+      vertical-align: middle;
+    }
   `]
 })
 export class UsuariosComponent implements OnInit {
   usuarios: any[] = [];
   filtro: string = '';
-  displayedColumns: string[] = ['nif', 'name', 'surnames', 'email', 'telephone', 'age', 'gender', 'instrumento', 'rol', 'password'];
+  displayedColumns: string[] = ['nif', 'name', 'surnames', 'email', 'telephone', 'age', 'gender', 'instrumento', 'rol', 'acciones'];
   dataSource = new MatTableDataSource<any>([]);
 
   private readonly API_URL = environment.apiUrl;
@@ -143,5 +162,9 @@ export class UsuariosComponent implements OnInit {
 
   goToDelete() {
     this.router.navigate(['/usuarios/eliminar']);
+  }
+
+  editarUsuario(nif: string) {
+    this.router.navigate(['/usuarios/editar/', nif]);
   }
 }

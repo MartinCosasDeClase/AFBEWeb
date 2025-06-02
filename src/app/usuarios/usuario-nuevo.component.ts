@@ -83,8 +83,8 @@ import { environment } from '../environment/environment';
         </div>
 
         <div class="form-actions">
-          <button mat-raised-button color="warn" type="button" (click)="cancel()">Cancelar</button>
           <button mat-raised-button color="primary" type="submit" [disabled]="userForm.invalid">Guardar</button>
+          <button mat-raised-button color="warn" type="button" (click)="cancel()">Cancelar</button>
         </div>
       </form>
     </mat-card>

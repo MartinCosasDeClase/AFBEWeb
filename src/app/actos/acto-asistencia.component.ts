@@ -3,8 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { environment } from '../environment/environment';
-
-// Angular Material imports
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -44,7 +42,6 @@ export interface User {
     <mat-card class="asistencia-container">
       <h2 class="card-title">Asistencia Confirmada para el Acto {{ actoId }}</h2>
 
-      <!-- Sección para agrupar los usuarios por instrumento y subdividir por categoría -->
       <div class="group-grid" *ngIf="groupedByInstrument?.length">
         <div *ngFor="let group of groupedByInstrument" class="group-box">
           <h3 class="group-header">{{ group.instrument }}</h3>
@@ -67,7 +64,6 @@ export interface User {
     </mat-card>
   `,
   styles: [`
-    /* No modificamos el fondo del contenedor, solo el fondo del body se cambiará vía código */
     .asistencia-container {
       max-width: 1500px;
       margin: 30px auto;
@@ -100,7 +96,6 @@ export interface User {
       background-color: #f5f5f5;
       transition: background-color 0.3s ease;
     }
-    /* Sección para agrupación por instrumento con subcategorías */
     .group-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -187,7 +182,6 @@ export class ActoAsistenciaComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    // Restauramos el background original al abandonar esta pestaña (opcional)
     document.body.style.backgroundImage = this.originalBodyBackgroundImage;
     document.body.style.backgroundColor = this.originalBodyBackgroundColor;
   }

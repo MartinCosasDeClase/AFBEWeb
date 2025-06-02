@@ -47,42 +47,35 @@ export interface Acto {
       <div class="table-container">
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-          <!-- Columna ID -->
           <ng-container matColumnDef="id">
             <th mat-header-cell *matHeaderCellDef> ID </th>
             <td mat-cell *matCellDef="let acto"> {{ acto.id }} </td>
           </ng-container>
 
-          <!-- Columna Nombre -->
           <ng-container matColumnDef="nombre">
             <th mat-header-cell *matHeaderCellDef> Nombre </th>
             <td mat-cell *matCellDef="let acto"> {{ acto.nombre }} </td>
           </ng-container>
 
-          <!-- Columna Ubicación -->
           <ng-container matColumnDef="ubicacion">
             <th mat-header-cell *matHeaderCellDef> Ubicación </th>
             <td mat-cell *matCellDef="let acto"> {{ acto.ubicacion }} </td>
           </ng-container>
 
-          <!-- Columna Fecha y Hora -->
           <ng-container matColumnDef="fechaHora">
             <th mat-header-cell *matHeaderCellDef> Fecha y Hora </th>
             <td mat-cell *matCellDef="let acto"> {{ acto.fechaHora }} </td>
           </ng-container>
 
-          <!-- Columna Descripción -->
           <ng-container matColumnDef="descripcion">
             <th mat-header-cell *matHeaderCellDef> Descripción </th>
             <td mat-cell *matCellDef="let acto"> {{ acto.descripcion }} </td>
           </ng-container>
 
-          <!-- Columna Partituras -->
           <ng-container matColumnDef="partituras">
             <th mat-header-cell *matHeaderCellDef> Partituras </th>
             <td mat-cell *matCellDef="let acto"> {{ acto.partituras }} </td>
           </ng-container>
-
 
           <ng-container matColumnDef="asistencia">
             <th mat-header-cell *matHeaderCellDef> Asistencia </th>
