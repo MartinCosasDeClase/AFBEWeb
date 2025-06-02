@@ -10,6 +10,8 @@ import { ActoNuevoComponent } from './actos/acto-nuevo.component';
 import { ActoAsistenciaComponent } from './actos/acto-asistencia.component';
 import { UsuarioEditarComponent } from './usuarios/usuario-editar.component';
 import { PartituraFormComponent } from './partituras/partitura-añadir.component';
+import { PublicacionFormComponent } from './publicacion/publicacion-form.component';
+
 
 export const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -25,7 +27,9 @@ export const appRoutes: Routes = [
       { path: 'actos', component: ActosComponent },
       { path: 'actos/nuevo', component: ActoNuevoComponent },
       { path: 'actos/:actoId/asistencia', component: ActoAsistenciaComponent },
-      { path: 'partituras/nueva', component: PartituraFormComponent }
+      { path: 'partituras/nueva', component: PartituraFormComponent },
+      { path: 'publicaciones/nueva', component: PublicacionFormComponent }
+
     ]
   },
   { path: '**', redirectTo: 'login' }

@@ -51,7 +51,9 @@ import { MatMenuModule } from '@angular/material/menu';
           </button>
           <button mat-menu-item routerLink="/partituras/nueva">
             <mat-icon>library_music</mat-icon> Partituras
-            Partituras
+          </button>
+          <button mat-menu-item routerLink="/publicaciones/nueva">
+            <mat-icon>article</mat-icon> Publicaciones
           </button>
           <button mat-menu-item (click)="logout()" routerLink="/login" style="color: red">
             <mat-icon style="color: red">logout</mat-icon> Cerrar sesión
