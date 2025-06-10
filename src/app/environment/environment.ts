@@ -1,5 +1,5 @@
 export const environment = {
   production: false,
-  //apiUrl:'https://definite-cobra-diverse.ngrok-free.app'
-  apiUrl: 'http://localhost:8080'
+  apiUrl:'https://afbespringboot-production.up.railway.app'
+  //apiUrl: 'http://localhost:8080'
 };
