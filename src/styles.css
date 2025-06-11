@@ -9,7 +9,7 @@ body {
   margin: 0;
   background: var(--secondary-color);
   color: var(--primary-color);
-  background-image: url(https://afbeweb-production.up.railway.app/assets/fondo.jpg);
+  background-image: url(http://localhost:4200/assets/fondo.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -17,7 +17,7 @@ body {
 }
 .fondo {
   position: fixed;
-  background: url(https://afbeweb-production.up.railway.app/assets/fondo.jpg) center/cover no-repeat;
+  background: url(http://localhost:4200/assets/fondo.jpg) center/cover no-repeat;
   filter: blur(8px);
   z-index: -1;
 }
